@@ -503,12 +503,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/lib/react-apollo.esm.js");
-/* harmony import */ var _Signin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Signin */ "./components/Signin.js");
-/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _Signin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Signin */ "./components/Signin.js");
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_5__);
 
 var _jsxFileName = "D:\\projects\\linxify\\linxify-graphql-frontend\\components\\PleaseSignIn.js";
 
@@ -528,11 +527,10 @@ function _templateObject() {
 
 
 
-
-var CURRENT_USER_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_6___default()(_templateObject());
+var CURRENT_USER_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default()(_templateObject());
 
 var PleaseSignIn = function PleaseSignIn(props) {
-  var _useQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__["useQuery"])(CURRENT_USER_QUERY),
+  var _useQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__["useQuery"])(CURRENT_USER_QUERY),
       loading = _useQuery.loading,
       data = _useQuery.data,
       error = _useQuery.error;
@@ -540,16 +538,16 @@ var PleaseSignIn = function PleaseSignIn(props) {
   if (loading) return __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 16
     },
     __self: this
   }, "Loading...");
 
-  __jsx(_ErrorMessage__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  __jsx(_ErrorMessage__WEBPACK_IMPORTED_MODULE_3__["default"], {
     error: error,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 17
     },
     __self: this
   });
@@ -558,19 +556,19 @@ var PleaseSignIn = function PleaseSignIn(props) {
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 20
       },
       __self: this
     }, __jsx("p", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 21
       },
       __self: this
-    }, "Please Sign In before continuing!"), __jsx(_Signin__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, "Please Sign In before continuing!"), __jsx(_Signin__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 22
       },
       __self: this
     }));
@@ -1105,544 +1103,6 @@ function parser(document) {
 
 
 //# sourceMappingURL=react-common.esm.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@apollo/react-components/lib/react-components.esm.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/@apollo/react-components/lib/react-components.esm.js ***!
-  \***************************************************************************/
-/*! exports provided: ApolloConsumer, ApolloProvider, getApolloContext, resetApolloContext, Mutation, Query, Subscription */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Mutation", function() { return Mutation; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Query", function() { return Query; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Subscription", function() { return Subscription; });
-/* harmony import */ var _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @apollo/react-common */ "./node_modules/@apollo/react-common/lib/react-common.esm.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloConsumer", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloConsumer"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloProvider", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloProvider"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getApolloContext", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["getApolloContext"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "resetApolloContext", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["resetApolloContext"]; });
-
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
-
-
-
-
-
-function Query(props) {
-    var children = props.children, query = props.query, options = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__rest"])(props, ["children", "query"]);
-    var result = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(query, options);
-    return children && result ? children(result) : null;
-}
-(function (Query) {
-    Query.propTypes = {
-        client: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
-        children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired,
-        fetchPolicy: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
-        notifyOnNetworkStatusChange: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
-        onCompleted: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
-        onError: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
-        pollInterval: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
-        query: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
-        variables: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
-        ssr: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
-        partialRefetch: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
-        returnPartialData: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool
-    };
-})(Query || (Query = {}));
-
-function Mutation(props) {
-    var _a = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(props.mutation, props), runMutation = _a[0], result = _a[1];
-    return props.children ? props.children(runMutation, result) : null;
-}
-(function (Mutation) {
-    Mutation.propTypes = {
-        mutation: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
-        variables: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
-        optimisticResponse: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object, prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func]),
-        refetchQueries: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([
-            prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object])),
-            prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func
-        ]),
-        awaitRefetchQueries: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
-        update: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
-        children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired,
-        onCompleted: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
-        onError: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
-        fetchPolicy: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string
-    };
-})(Mutation || (Mutation = {}));
-
-function Subscription(props) {
-    var result = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(props.subscription, props);
-    return props.children && result ? props.children(result) : null;
-}
-(function (Subscription) {
-    Subscription.propTypes = {
-        subscription: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
-        variables: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
-        children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
-        onSubscriptionData: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
-        onSubscriptionComplete: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
-        shouldResubscribe: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func, prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool]),
-    };
-})(Subscription || (Subscription = {}));
-
-
-//# sourceMappingURL=react-components.esm.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@apollo/react-hoc/lib/react-hoc.esm.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/@apollo/react-hoc/lib/react-hoc.esm.js ***!
-  \*************************************************************/
-/*! exports provided: ApolloConsumer, ApolloProvider, getApolloContext, resetApolloContext, graphql, withApollo, withMutation, withQuery, withSubscription */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "graphql", function() { return graphql; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withApollo", function() { return withApollo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withMutation", function() { return withMutation; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withQuery", function() { return withQuery; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withSubscription", function() { return withSubscription; });
-/* harmony import */ var _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @apollo/react-common */ "./node_modules/@apollo/react-common/lib/react-common.esm.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloConsumer", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloConsumer"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloProvider", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloProvider"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getApolloContext", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["getApolloContext"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "resetApolloContext", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["resetApolloContext"]; });
-
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! hoist-non-react-statics */ "./node_modules/@apollo/react-hoc/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js");
-/* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _apollo_react_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-components */ "./node_modules/@apollo/react-components/lib/react-components.esm.js");
-/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
-
-
-
-
-
-
-
-
-var defaultMapPropsToOptions = function () { return ({}); };
-var defaultMapPropsToSkip = function () { return false; };
-function getDisplayName(WrappedComponent) {
-    return WrappedComponent.displayName || WrappedComponent.name || 'Component';
-}
-function calculateVariablesFromProps(operation, props) {
-    var variables = {};
-    for (var _i = 0, _a = operation.variables; _i < _a.length; _i++) {
-        var _b = _a[_i], variable = _b.variable, type = _b.type;
-        if (!variable.name || !variable.name.value)
-            continue;
-        var variableName = variable.name.value;
-        var variableProp = props[variableName];
-        if (typeof variableProp !== 'undefined') {
-            variables[variableName] = variableProp;
-            continue;
-        }
-        if (type.kind !== 'NonNullType') {
-            variables[variableName] = undefined;
-        }
-    }
-    return variables;
-}
-var GraphQLBase = (function (_super) {
-    Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(GraphQLBase, _super);
-    function GraphQLBase(props) {
-        var _this = _super.call(this, props) || this;
-        _this.withRef = false;
-        _this.setWrappedInstance = _this.setWrappedInstance.bind(_this);
-        return _this;
-    }
-    GraphQLBase.prototype.getWrappedInstance = function () {
-         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_5__["invariant"])(this.withRef, "To access the wrapped instance, you need to specify " +
-            "{ withRef: true } in the options");
-        return this.wrappedInstance;
-    };
-    GraphQLBase.prototype.setWrappedInstance = function (ref) {
-        this.wrappedInstance = ref;
-    };
-    return GraphQLBase;
-}(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component));
-
-function withQuery(document, operationOptions) {
-    if (operationOptions === void 0) { operationOptions = {}; }
-    var operation = Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["parser"])(document);
-    var _a = operationOptions.options, options = _a === void 0 ? defaultMapPropsToOptions : _a, _b = operationOptions.skip, skip = _b === void 0 ? defaultMapPropsToSkip : _b, _c = operationOptions.alias, alias = _c === void 0 ? 'Apollo' : _c;
-    var mapPropsToOptions = options;
-    if (typeof mapPropsToOptions !== 'function') {
-        mapPropsToOptions = function () { return options; };
-    }
-    var mapPropsToSkip = skip;
-    if (typeof mapPropsToSkip !== 'function') {
-        mapPropsToSkip = function () { return skip; };
-    }
-    var lastResultProps;
-    return function (WrappedComponent) {
-        var graphQLDisplayName = alias + "(" + getDisplayName(WrappedComponent) + ")";
-        var GraphQL = (function (_super) {
-            Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(GraphQL, _super);
-            function GraphQL() {
-                return _super !== null && _super.apply(this, arguments) || this;
-            }
-            GraphQL.prototype.render = function () {
-                var _this = this;
-                var props = this.props;
-                var shouldSkip = mapPropsToSkip(props);
-                var opts = shouldSkip
-                    ? Object.create(null)
-                    : Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, mapPropsToOptions(props));
-                if (!shouldSkip && !opts.variables && operation.variables.length > 0) {
-                    opts.variables = calculateVariablesFromProps(operation, props);
-                }
-                return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_apollo_react_components__WEBPACK_IMPORTED_MODULE_4__["Query"], Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, opts, { displayName: graphQLDisplayName, skip: shouldSkip, query: document }), function (_a) {
-                    var _b, _c;
-                    var _ = _a.client, data = _a.data, r = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__rest"])(_a, ["client", "data"]);
-                    if (operationOptions.withRef) {
-                        _this.withRef = true;
-                        props = Object.assign({}, props, {
-                            ref: _this.setWrappedInstance
-                        });
-                    }
-                    if (shouldSkip) {
-                        return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, props, {})));
-                    }
-                    var result = Object.assign(r, data || {});
-                    var name = operationOptions.name || 'data';
-                    var childProps = (_b = {}, _b[name] = result, _b);
-                    if (operationOptions.props) {
-                        var newResult = (_c = {},
-                            _c[name] = result,
-                            _c.ownProps = props,
-                            _c);
-                        lastResultProps = operationOptions.props(newResult, lastResultProps);
-                        childProps = lastResultProps;
-                    }
-                    return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, props, childProps)));
-                }));
-            };
-            GraphQL.displayName = graphQLDisplayName;
-            GraphQL.WrappedComponent = WrappedComponent;
-            return GraphQL;
-        }(GraphQLBase));
-        return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_3___default()(GraphQL, WrappedComponent, {});
-    };
-}
-
-function withMutation(document, operationOptions) {
-    if (operationOptions === void 0) { operationOptions = {}; }
-    var operation = Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["parser"])(document);
-    var _a = operationOptions.options, options = _a === void 0 ? defaultMapPropsToOptions : _a, _b = operationOptions.alias, alias = _b === void 0 ? 'Apollo' : _b;
-    var mapPropsToOptions = options;
-    if (typeof mapPropsToOptions !== 'function')
-        mapPropsToOptions = function () { return options; };
-    return function (WrappedComponent) {
-        var graphQLDisplayName = alias + "(" + getDisplayName(WrappedComponent) + ")";
-        var GraphQL = (function (_super) {
-            Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(GraphQL, _super);
-            function GraphQL() {
-                return _super !== null && _super.apply(this, arguments) || this;
-            }
-            GraphQL.prototype.render = function () {
-                var props = this.props;
-                var opts = mapPropsToOptions(props);
-                if (operationOptions.withRef) {
-                    this.withRef = true;
-                    props = Object.assign({}, props, {
-                        ref: this.setWrappedInstance
-                    });
-                }
-                if (!opts.variables && operation.variables.length > 0) {
-                    opts.variables = calculateVariablesFromProps(operation, props);
-                }
-                return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_apollo_react_components__WEBPACK_IMPORTED_MODULE_4__["Mutation"], Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({ ignoreResults: true }, opts, { mutation: document }), function (mutate, _a) {
-                    var _b, _c;
-                    var data = _a.data, r = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__rest"])(_a, ["data"]);
-                    var result = Object.assign(r, data || {});
-                    var name = operationOptions.name || 'mutate';
-                    var resultName = operationOptions.name
-                        ? name + "Result"
-                        : 'result';
-                    var childProps = (_b = {},
-                        _b[name] = mutate,
-                        _b[resultName] = result,
-                        _b);
-                    if (operationOptions.props) {
-                        var newResult = (_c = {},
-                            _c[name] = mutate,
-                            _c[resultName] = result,
-                            _c.ownProps = props,
-                            _c);
-                        childProps = operationOptions.props(newResult);
-                    }
-                    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, props, childProps));
-                }));
-            };
-            GraphQL.displayName = graphQLDisplayName;
-            GraphQL.WrappedComponent = WrappedComponent;
-            return GraphQL;
-        }(GraphQLBase));
-        return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_3___default()(GraphQL, WrappedComponent, {});
-    };
-}
-
-function withSubscription(document, operationOptions) {
-    if (operationOptions === void 0) { operationOptions = {}; }
-    var operation = Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["parser"])(document);
-    var _a = operationOptions.options, options = _a === void 0 ? defaultMapPropsToOptions : _a, _b = operationOptions.skip, skip = _b === void 0 ? defaultMapPropsToSkip : _b, _c = operationOptions.alias, alias = _c === void 0 ? 'Apollo' : _c, shouldResubscribe = operationOptions.shouldResubscribe;
-    var mapPropsToOptions = options;
-    if (typeof mapPropsToOptions !== 'function')
-        mapPropsToOptions = function () { return options; };
-    var mapPropsToSkip = skip;
-    if (typeof mapPropsToSkip !== 'function')
-        mapPropsToSkip = function () { return skip; };
-    var lastResultProps;
-    return function (WrappedComponent) {
-        var graphQLDisplayName = alias + "(" + getDisplayName(WrappedComponent) + ")";
-        var GraphQL = (function (_super) {
-            Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(GraphQL, _super);
-            function GraphQL(props) {
-                var _this = _super.call(this, props) || this;
-                _this.state = { resubscribe: false };
-                return _this;
-            }
-            GraphQL.prototype.componentDidUpate = function (prevProps) {
-                if (shouldResubscribe) {
-                    this.setState({
-                        resubscribe: shouldResubscribe(prevProps, this.props)
-                    });
-                }
-            };
-            GraphQL.prototype.render = function () {
-                var _this = this;
-                var props = this.props;
-                var shouldSkip = mapPropsToSkip(props);
-                var opts = shouldSkip
-                    ? Object.create(null)
-                    : mapPropsToOptions(props);
-                if (!shouldSkip && !opts.variables && operation.variables.length > 0) {
-                    opts.variables = calculateVariablesFromProps(operation, props);
-                }
-                return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_apollo_react_components__WEBPACK_IMPORTED_MODULE_4__["Subscription"], Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, opts, { displayName: graphQLDisplayName, skip: shouldSkip, subscription: document, shouldResubscribe: this.state.resubscribe }), function (_a) {
-                    var _b, _c;
-                    var data = _a.data, r = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__rest"])(_a, ["data"]);
-                    if (operationOptions.withRef) {
-                        _this.withRef = true;
-                        props = Object.assign({}, props, {
-                            ref: _this.setWrappedInstance
-                        });
-                    }
-                    if (shouldSkip) {
-                        return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, props, {})));
-                    }
-                    var result = Object.assign(r, data || {});
-                    var name = operationOptions.name || 'data';
-                    var childProps = (_b = {}, _b[name] = result, _b);
-                    if (operationOptions.props) {
-                        var newResult = (_c = {},
-                            _c[name] = result,
-                            _c.ownProps = props,
-                            _c);
-                        lastResultProps = operationOptions.props(newResult, lastResultProps);
-                        childProps = lastResultProps;
-                    }
-                    return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, props, childProps)));
-                }));
-            };
-            GraphQL.displayName = graphQLDisplayName;
-            GraphQL.WrappedComponent = WrappedComponent;
-            return GraphQL;
-        }(GraphQLBase));
-        return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_3___default()(GraphQL, WrappedComponent, {});
-    };
-}
-
-function graphql(document, operationOptions) {
-    if (operationOptions === void 0) { operationOptions = {}; }
-    switch (Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["parser"])(document).type) {
-        case _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["DocumentType"].Mutation:
-            return withMutation(document, operationOptions);
-        case _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["DocumentType"].Subscription:
-            return withSubscription(document, operationOptions);
-        case _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["DocumentType"].Query:
-        default:
-            return withQuery(document, operationOptions);
-    }
-}
-
-function getDisplayName$1(WrappedComponent) {
-    return WrappedComponent.displayName || WrappedComponent.name || 'Component';
-}
-function withApollo(WrappedComponent, operationOptions) {
-    if (operationOptions === void 0) { operationOptions = {}; }
-    var withDisplayName = "withApollo(" + getDisplayName$1(WrappedComponent) + ")";
-    var WithApollo = (function (_super) {
-        Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(WithApollo, _super);
-        function WithApollo(props) {
-            var _this = _super.call(this, props) || this;
-            _this.setWrappedInstance = _this.setWrappedInstance.bind(_this);
-            return _this;
-        }
-        WithApollo.prototype.getWrappedInstance = function () {
-             false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_5__["invariant"])(operationOptions.withRef, "To access the wrapped instance, you need to specify " +
-                "{ withRef: true } in the options");
-            return this.wrappedInstance;
-        };
-        WithApollo.prototype.setWrappedInstance = function (ref) {
-            this.wrappedInstance = ref;
-        };
-        WithApollo.prototype.render = function () {
-            var _this = this;
-            return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloConsumer"], null, function (client) {
-                var props = Object.assign({}, _this.props, {
-                    client: client,
-                    ref: operationOptions.withRef
-                        ? _this.setWrappedInstance
-                        : undefined
-                });
-                return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, props));
-            }));
-        };
-        WithApollo.displayName = withDisplayName;
-        WithApollo.WrappedComponent = WrappedComponent;
-        return WithApollo;
-    }(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component));
-    return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_3___default()(WithApollo, WrappedComponent, {});
-}
-
-
-//# sourceMappingURL=react-hoc.esm.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@apollo/react-hoc/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js":
-/*!*****************************************************************************************************************!*\
-  !*** ./node_modules/@apollo/react-hoc/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js ***!
-  \*****************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var reactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
-
-/**
- * Copyright 2015, Yahoo! Inc.
- * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
- */
-var REACT_STATICS = {
-  childContextTypes: true,
-  contextType: true,
-  contextTypes: true,
-  defaultProps: true,
-  displayName: true,
-  getDefaultProps: true,
-  getDerivedStateFromError: true,
-  getDerivedStateFromProps: true,
-  mixins: true,
-  propTypes: true,
-  type: true
-};
-var KNOWN_STATICS = {
-  name: true,
-  length: true,
-  prototype: true,
-  caller: true,
-  callee: true,
-  arguments: true,
-  arity: true
-};
-var FORWARD_REF_STATICS = {
-  '$$typeof': true,
-  render: true,
-  defaultProps: true,
-  displayName: true,
-  propTypes: true
-};
-var MEMO_STATICS = {
-  '$$typeof': true,
-  compare: true,
-  defaultProps: true,
-  displayName: true,
-  propTypes: true,
-  type: true
-};
-var TYPE_STATICS = {};
-TYPE_STATICS[reactIs.ForwardRef] = FORWARD_REF_STATICS;
-
-function getStatics(component) {
-  if (reactIs.isMemo(component)) {
-    return MEMO_STATICS;
-  }
-
-  return TYPE_STATICS[component['$$typeof']] || REACT_STATICS;
-}
-
-var defineProperty = Object.defineProperty;
-var getOwnPropertyNames = Object.getOwnPropertyNames;
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
-var getPrototypeOf = Object.getPrototypeOf;
-var objectPrototype = Object.prototype;
-function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
-  if (typeof sourceComponent !== 'string') {
-    // don't hoist over string (html) components
-    if (objectPrototype) {
-      var inheritedComponent = getPrototypeOf(sourceComponent);
-
-      if (inheritedComponent && inheritedComponent !== objectPrototype) {
-        hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
-      }
-    }
-
-    var keys = getOwnPropertyNames(sourceComponent);
-
-    if (getOwnPropertySymbols) {
-      keys = keys.concat(getOwnPropertySymbols(sourceComponent));
-    }
-
-    var targetStatics = getStatics(targetComponent);
-    var sourceStatics = getStatics(sourceComponent);
-
-    for (var i = 0; i < keys.length; ++i) {
-      var key = keys[i];
-
-      if (!KNOWN_STATICS[key] && !(blacklist && blacklist[key]) && !(sourceStatics && sourceStatics[key]) && !(targetStatics && targetStatics[key])) {
-        var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
-
-        try {
-          // Avoid failures from read-only properties
-          defineProperty(targetComponent, key, descriptor);
-        } catch (e) {}
-      }
-    }
-  }
-
-  return targetComponent;
-}
-
-module.exports = hoistNonReactStatics;
 
 
 /***/ }),
@@ -22692,70 +22152,6 @@ var objectKeys = Object.keys || function (obj) {
 
 exports.decode = exports.parse = __webpack_require__(/*! ./decode */ "./node_modules/querystring-es3/decode.js");
 exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ "./node_modules/querystring-es3/encode.js");
-
-
-/***/ }),
-
-/***/ "./node_modules/react-apollo/lib/react-apollo.esm.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/react-apollo/lib/react-apollo.esm.js ***!
-  \***********************************************************/
-/*! exports provided: ApolloConsumer, ApolloProvider, getApolloContext, resetApolloContext, Mutation, Query, Subscription, graphql, withApollo, withMutation, withQuery, withSubscription, useApolloClient, useLazyQuery, useMutation, useQuery, useSubscription, getDataFromTree, getMarkupFromTree, renderToStringWithData */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @apollo/react-common */ "./node_modules/@apollo/react-common/lib/react-common.esm.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloConsumer", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloConsumer"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloProvider", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloProvider"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getApolloContext", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["getApolloContext"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "resetApolloContext", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["resetApolloContext"]; });
-
-/* harmony import */ var _apollo_react_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-components */ "./node_modules/@apollo/react-components/lib/react-components.esm.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Mutation", function() { return _apollo_react_components__WEBPACK_IMPORTED_MODULE_1__["Mutation"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Query", function() { return _apollo_react_components__WEBPACK_IMPORTED_MODULE_1__["Query"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Subscription", function() { return _apollo_react_components__WEBPACK_IMPORTED_MODULE_1__["Subscription"]; });
-
-/* harmony import */ var _apollo_react_hoc__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hoc */ "./node_modules/@apollo/react-hoc/lib/react-hoc.esm.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "graphql", function() { return _apollo_react_hoc__WEBPACK_IMPORTED_MODULE_2__["graphql"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "withApollo", function() { return _apollo_react_hoc__WEBPACK_IMPORTED_MODULE_2__["withApollo"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "withMutation", function() { return _apollo_react_hoc__WEBPACK_IMPORTED_MODULE_2__["withMutation"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "withQuery", function() { return _apollo_react_hoc__WEBPACK_IMPORTED_MODULE_2__["withQuery"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "withSubscription", function() { return _apollo_react_hoc__WEBPACK_IMPORTED_MODULE_2__["withSubscription"]; });
-
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useApolloClient", function() { return _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useApolloClient"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useLazyQuery", function() { return _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useLazyQuery"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useMutation", function() { return _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useQuery", function() { return _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useSubscription", function() { return _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useSubscription"]; });
-
-/* harmony import */ var _apollo_react_ssr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-ssr */ "./node_modules/@apollo/react-ssr/lib/react-ssr.esm.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDataFromTree", function() { return _apollo_react_ssr__WEBPACK_IMPORTED_MODULE_4__["getDataFromTree"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getMarkupFromTree", function() { return _apollo_react_ssr__WEBPACK_IMPORTED_MODULE_4__["getMarkupFromTree"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "renderToStringWithData", function() { return _apollo_react_ssr__WEBPACK_IMPORTED_MODULE_4__["renderToStringWithData"]; });
-
-
-
-
-
-
-//# sourceMappingURL=react-apollo.esm.js.map
 
 
 /***/ }),

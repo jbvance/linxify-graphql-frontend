@@ -1,4 +1,3 @@
-import { Query } from 'react-apollo';
 import Signin from './Signin';
 import Error from './ErrorMessage';
 import { useQuery } from '@apollo/react-hooks';
