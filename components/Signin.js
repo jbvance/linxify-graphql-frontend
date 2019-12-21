@@ -1,8 +1,9 @@
 import React, {useState } from 'react';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
+import { CURRENT_USER_QUERY } from './PleaseSignIn';
 
 const SIGNIN_MUTATION = gql`
   mutation SIGNIN_MUTATION($email: String!, $password: String!) {
@@ -14,6 +15,7 @@ const SIGNIN_MUTATION = gql`
 }
 `;
 
+
 const Signin = props => {
   const [loginState, setLoginState] = useState({
     name: '',
@@ -21,7 +23,9 @@ const Signin = props => {
     password: ''
   });
 
-  const [signin, { loading, error, data }] = useMutation(SIGNIN_MUTATION);
+  const [signin, { loading, error, data }] = useMutation(SIGNIN_MUTATION, {
+    refetchQueries: [{ query: CURRENT_USER_QUERY}]
+  });  
 
   // TODO, REMOVE THESE ONCE APOLLO IS ADDED
   //const loading = false;
@@ -30,7 +34,7 @@ const Signin = props => {
   const saveToState = e => {
     setLoginState({ ...loginState, [e.target.name]: e.target.value });
   };
-
+  
   return (
     <Form
       method="POST"

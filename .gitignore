@@ -2,7 +2,7 @@ node_modules/
 .DS_Store
 *.log
 haters/
-.next/
+*.next/
 .build/
 layout.md
 variables.env

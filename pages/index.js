@@ -1,10 +1,13 @@
 import React from 'react';
-import Signin from '../components/Signin';
+import Links from '../components/Links';
+import PleaseSignIn from '../components/PleaseSignIn';
 
 const  Home = props => {
   return (
    
-    <Signin />
+    <PleaseSignIn>
+      <Links />
+    </PleaseSignIn>
   )
 };
 

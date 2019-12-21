@@ -1,8 +1,23 @@
 import React from 'react';
 import Link from 'next/link';
+import { useMutation, useQuery } from '@apollo/react-hooks';
+import Signout from './Signout';
 import NavStyles from './styles/NavStyles';
+import { CURRENT_USER_QUERY } from './PleaseSignIn';
 
-const Nav = () => (
+const Nav = () => {
+  const { loading, error, data } = useQuery(CURRENT_USER_QUERY);
+  if (loading) return <div>...Loading</div>
+
+  if (!data || !data.me) {
+    return (
+      <Link href="/signup">
+        <a>Sign In</a>
+      </Link>
+    );
+  }
+ 
+  if (data && data.me) return (
   <NavStyles>
      <Link href="/">
         <a>Links</a>
@@ -16,7 +31,8 @@ const Nav = () => (
      <Link href="/add-category">
         <a>Add Category</a>
     </Link>
+    <Signout />
   </NavStyles>
-);
+)};
 
 export default Nav;
