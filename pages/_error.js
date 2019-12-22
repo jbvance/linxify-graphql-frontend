@@ -3,6 +3,7 @@ import Router, {useRouter }from 'next/router';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { validateUrl } from '../lib/utils';
 import { CREATE_LINK_MUTATION } from '../components/CreateLink';
+import Error from '../components/ErrorMessage';
 
 function CustomError({ statusCode, urlToSave, cookie }) {
   const router = useRouter();
@@ -13,7 +14,7 @@ function CustomError({ statusCode, urlToSave, cookie }) {
 
   const [createLink, { data, loading, error }] = useMutation(CREATE_LINK_MUTATION);
 
-  useEffect(() => {            
+  useEffect(async () => {            
       if (cookie && cookie.includes('token=')) {
           // Assume user is logged in because cookie is present
           token = cookie.split('token=')[1];
@@ -31,17 +32,19 @@ function CustomError({ statusCode, urlToSave, cookie }) {
               url = tmpUrl;
           }          
           //console.log('URL and Cat', url, category); 
-          createLink({ variables: { url, category }});
+          await createLink({ variables: { url, category }});
          
       }      
   }, []);
 
-  if(data) console.log("DATA", data);
+  if(data) console.log("DATA", data);  
 
   console.log(validateUrl(urlToSave.replace(/^\/|\/$/g, ''))); 
   return (
-  <h2>Sorry, there was an error - {statusCode}</h2>
-
+    <div>
+        <h2>Sorry, there was an error - {statusCode}</h2>
+        <Error error={error} />
+    </div>
   );
 }
 
