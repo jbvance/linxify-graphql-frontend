@@ -14,7 +14,11 @@ function CustomError({ statusCode, urlToSave, cookie }) {
 
   const [createLink, { data, loading, error }] = useMutation(CREATE_LINK_MUTATION);
 
-  useEffect(async () => {            
+  useEffect(() => {            
+      async function fetchCreateLink() {
+        await createLink({ variables: { url, category }});
+      }
+
       if (cookie && cookie.includes('token=')) {
           // Assume user is logged in because cookie is present
           token = cookie.split('token=')[1];
@@ -32,8 +36,9 @@ function CustomError({ statusCode, urlToSave, cookie }) {
               url = tmpUrl;
           }          
           //console.log('URL and Cat', url, category); 
-          
-          await createLink({ variables: { url, category }});
+
+          fetchCreateLink();
+         
          
       }      
   }, []);

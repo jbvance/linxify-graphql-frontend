@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -296,7 +296,16 @@ function CustomError({
     loading,
     error
   }] = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(_components_CreateLink__WEBPACK_IMPORTED_MODULE_4__["CREATE_LINK_MUTATION"]);
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(async () => {
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    async function fetchCreateLink() {
+      await createLink({
+        variables: {
+          url,
+          category
+        }
+      });
+    }
+
     if (cookie && cookie.includes('token=')) {
       // Assume user is logged in because cookie is present
       token = cookie.split('token=')[1]; //console.log('TOKEN', token);
@@ -314,33 +323,28 @@ function CustomError({
       } //console.log('URL and Cat', url, category); 
 
 
-      await createLink({
-        variables: {
-          url,
-          category
-        }
-      });
+      fetchCreateLink();
     }
   }, []);
-  if (data) console.log("DATA", data);
-  console.log(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_3__["validateUrl"])(urlToSave.replace(/^\/|\/$/g, '')));
+  if (data) console.log("DATA", data); //console.log(validateUrl(urlToSave.replace(/^\/|\/$/g, ''))); 
+
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 50
     },
     __self: this
   }, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 51
     },
     __self: this
   }, "Sorry, there was an error - ", statusCode), __jsx(_components_ErrorMessage__WEBPACK_IMPORTED_MODULE_5__["default"], {
     error: error,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 52
     },
     __self: this
   }));
@@ -395,7 +399,7 @@ CustomError.getInitialProps = getInitialProps;
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!*******************************!*\
   !*** multi ./pages/_error.js ***!
   \*******************************/

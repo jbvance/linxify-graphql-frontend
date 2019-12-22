@@ -22301,66 +22301,67 @@ function CustomError(_ref) {
       loading = _useMutation2$.loading,
       error = _useMutation2$.error;
 
-  Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function _callee() {
-    return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            if (cookie && cookie.includes('token=')) {
-              // Assume user is logged in because cookie is present
-              token = cookie.split('token=')[1]; //console.log('TOKEN', token);
-            }
+  Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
+    function fetchCreateLink() {
+      return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function fetchCreateLink$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(createLink({
+                variables: {
+                  url: url,
+                  category: category
+                }
+              }));
 
-            if (!urlToSave) {
-              _context.next = 6;
-              break;
-            }
-
-            tmpUrl = urlToSave.replace(/^\/|\/$/g, ''); // check and see if a category was entered (i.e., url is preceded by '--')
-            //console.log('URL TO SAVE', tmpUrl);
-
-            if (tmpUrl.includes('--')) {
-              url = tmpUrl.split('--')[1];
-              category = tmpUrl.split('--')[0];
-            } else {
-              url = tmpUrl;
-            } //console.log('URL and Cat', url, category); 
-
-
-            _context.next = 6;
-            return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(createLink({
-              variables: {
-                url: url,
-                category: category
-              }
-            }));
-
-          case 6:
-          case "end":
-            return _context.stop();
+            case 2:
+            case "end":
+              return _context.stop();
+          }
         }
-      }
-    });
+      });
+    }
+
+    if (cookie && cookie.includes('token=')) {
+      // Assume user is logged in because cookie is present
+      token = cookie.split('token=')[1]; //console.log('TOKEN', token);
+    }
+
+    if (urlToSave) {
+      tmpUrl = urlToSave.replace(/^\/|\/$/g, ''); // check and see if a category was entered (i.e., url is preceded by '--')
+      //console.log('URL TO SAVE', tmpUrl);
+
+      if (tmpUrl.includes('--')) {
+        url = tmpUrl.split('--')[1];
+        category = tmpUrl.split('--')[0];
+      } else {
+        url = tmpUrl;
+      } //console.log('URL and Cat', url, category); 
+
+
+      fetchCreateLink();
+    }
   }, []);
-  if (data) console.log("DATA", data);
-  console.log(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["validateUrl"])(urlToSave.replace(/^\/|\/$/g, '')));
+  if (data) console.log("DATA", data); //console.log(validateUrl(urlToSave.replace(/^\/|\/$/g, ''))); 
+
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 50
     },
     __self: this
   }, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 51
     },
     __self: this
   }, "Sorry, there was an error - ", statusCode), __jsx(_components_ErrorMessage__WEBPACK_IMPORTED_MODULE_7__["default"], {
     error: error,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 52
     },
     __self: this
   }));
@@ -22415,7 +22416,7 @@ CustomError.getInitialProps = getInitialProps;
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!***********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F_error&absolutePagePath=D%3A%5Cprojects%5Clinxify%5Clinxify-graphql-frontend%5Cpages%5C_error.js ***!
   \***********************************************************************************************************************************************/
@@ -22438,5 +22439,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=_error.js.map
