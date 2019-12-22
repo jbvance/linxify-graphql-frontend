@@ -32,6 +32,7 @@ function CustomError({ statusCode, urlToSave, cookie }) {
               url = tmpUrl;
           }          
           //console.log('URL and Cat', url, category); 
+          
           await createLink({ variables: { url, category }});
          
       }      
@@ -39,7 +40,7 @@ function CustomError({ statusCode, urlToSave, cookie }) {
 
   if(data) console.log("DATA", data);  
 
-  console.log(validateUrl(urlToSave.replace(/^\/|\/$/g, ''))); 
+  //console.log(validateUrl(urlToSave.replace(/^\/|\/$/g, ''))); 
   return (
     <div>
         <h2>Sorry, there was an error - {statusCode}</h2>
