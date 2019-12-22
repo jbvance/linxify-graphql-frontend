@@ -24,6 +24,7 @@ const StyledLink = styled.div`
 const USER_LINKS_QUERY = gql`
   query {
     userLinks {
+      id
       url
       title
       favIcon
@@ -50,8 +51,7 @@ const displayLinks = (links) => {
 
 const Links = () => {
   const { data, loading, error } = useQuery(USER_LINKS_QUERY);
-  if (loading) return <div>Loading...</div>;
-  if (data) console.log('LINKS', data);
+  if (loading) return <div>Loading...</div>; 
   if(!data || data.userLinks.length < 1) {
       return <div>You haven't saved any links yet.</div>
   }
