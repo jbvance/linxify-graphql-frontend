@@ -11,18 +11,19 @@ function CustomError({ statusCode, urlToSave, cookie }) {
   let url = [];
   let category;
   let token;  
+  let loggedIn = false;
 
   const [createLink, { data, loading, error }] = useMutation(CREATE_LINK_MUTATION);
 
   useEffect(() => {            
       async function fetchCreateLink() {
         await createLink({ variables: { url, category }});
+        router.push('/');
       }
 
       if (cookie && cookie.includes('token=')) {
           // Assume user is logged in because cookie is present
-          token = cookie.split('token=')[1];
-          //console.log('TOKEN', token);
+          loggedIn = true;
       }
     
       if (urlToSave) {
@@ -37,9 +38,15 @@ function CustomError({ statusCode, urlToSave, cookie }) {
           }          
           //console.log('URL and Cat', url, category); 
 
-          fetchCreateLink();
-         
-         
+          if (loggedIn) {
+            fetchCreateLink();
+          } else {
+            //save to localStorage and redirect to login screen (we'll save the link after user logs in)
+            const lsLink = { url, category }           
+            localStorage.setItem('linkToSave', JSON.stringify(lsLink));
+            router.push('/');
+           
+          }                  
       }      
   }, []);
 

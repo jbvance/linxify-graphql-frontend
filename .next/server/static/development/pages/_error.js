@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -254,6 +254,17 @@ function validateUrl(url) {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/json/stringify */ "core-js/library/fn/json/stringify");
+
+/***/ }),
+
 /***/ "./pages/_error.js":
 /*!*************************!*\
   !*** ./pages/_error.js ***!
@@ -263,17 +274,20 @@ function validateUrl(url) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.js");
-/* harmony import */ var _components_CreateLink__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/CreateLink */ "./components/CreateLink.js");
-/* harmony import */ var _components_ErrorMessage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/ErrorMessage */ "./components/ErrorMessage.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.js");
+/* harmony import */ var _components_CreateLink__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/CreateLink */ "./components/CreateLink.js");
+/* harmony import */ var _components_ErrorMessage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/ErrorMessage */ "./components/ErrorMessage.js");
+
 var _jsxFileName = "D:\\projects\\linxify\\linxify-graphql-frontend\\pages\\_error.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
@@ -286,17 +300,18 @@ function CustomError({
   urlToSave,
   cookie
 }) {
-  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_1__["useRouter"])();
+  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])();
   let tmpUrl = '';
   let url = [];
   let category;
   let token;
+  let loggedIn = false;
   const [createLink, {
     data,
     loading,
     error
-  }] = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(_components_CreateLink__WEBPACK_IMPORTED_MODULE_4__["CREATE_LINK_MUTATION"]);
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+  }] = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(_components_CreateLink__WEBPACK_IMPORTED_MODULE_5__["CREATE_LINK_MUTATION"]);
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
     async function fetchCreateLink() {
       await createLink({
         variables: {
@@ -304,11 +319,12 @@ function CustomError({
           category
         }
       });
+      router.push('/');
     }
 
     if (cookie && cookie.includes('token=')) {
       // Assume user is logged in because cookie is present
-      token = cookie.split('token=')[1]; //console.log('TOKEN', token);
+      loggedIn = true;
     }
 
     if (urlToSave) {
@@ -323,7 +339,17 @@ function CustomError({
       } //console.log('URL and Cat', url, category); 
 
 
-      fetchCreateLink();
+      if (loggedIn) {
+        fetchCreateLink();
+      } else {
+        //save to localStorage and redirect to login screen (we'll save the link after user logs in)
+        const lsLink = {
+          url,
+          category
+        };
+        localStorage.setItem('linkToSave', _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(lsLink));
+        router.push('/');
+      }
     }
   }, []);
   if (data) console.log("DATA", data); //console.log(validateUrl(urlToSave.replace(/^\/|\/$/g, ''))); 
@@ -331,20 +357,20 @@ function CustomError({
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 57
     },
     __self: this
   }, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 58
     },
     __self: this
-  }, "Sorry, there was an error - ", statusCode), __jsx(_components_ErrorMessage__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, "Sorry, there was an error - ", statusCode), __jsx(_components_ErrorMessage__WEBPACK_IMPORTED_MODULE_6__["default"], {
     error: error,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 59
     },
     __self: this
   }));
@@ -384,7 +410,7 @@ const getInitialProps = ctx => {
     // Something really bad/weird happen and status code
     // cannot be determined.
     statusCode = null;
-    next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push('/');
+    next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push('/');
   }
 
   return {
@@ -399,7 +425,7 @@ CustomError.getInitialProps = getInitialProps;
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*******************************!*\
   !*** multi ./pages/_error.js ***!
   \*******************************/
@@ -419,6 +445,17 @@ module.exports = __webpack_require__(/*! D:\projects\linxify\linxify-graphql-fro
 /***/ (function(module, exports) {
 
 module.exports = require("@apollo/react-hooks");
+
+/***/ }),
+
+/***/ "core-js/library/fn/json/stringify":
+/*!****************************************************!*\
+  !*** external "core-js/library/fn/json/stringify" ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/json/stringify");
 
 /***/ }),
 
