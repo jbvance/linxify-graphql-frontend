@@ -93,6 +93,57 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/CreateLink.js":
+/*!**********************************!*\
+  !*** ./components/CreateLink.js ***!
+  \**********************************/
+/*! exports provided: CREATE_LINK_MUTATION, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_LINK_MUTATION", function() { return CREATE_LINK_MUTATION; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "D:\\projects\\linxify\\linxify-graphql-frontend\\components\\CreateLink.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const CREATE_LINK_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default.a`
+    mutation CREATE_LINK_MUTATION ($url: String!, $title: String, $favIcon: String, $note: String, $category: String) {
+    createLink (url: $url, title: $title, favIcon: $favIcon, note: $note, category: $category) {
+        id
+        url
+        title
+        favIcon	  
+        note    
+        category {
+        id
+        name
+        }
+  }
+}
+`;
+
+const CreateLink = () => {
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CreateLink);
+
+/***/ }),
+
 /***/ "./components/ErrorMessage.js":
 /*!************************************!*\
   !*** ./components/ErrorMessage.js ***!
@@ -266,6 +317,129 @@ const Header = () => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
+/***/ "./components/Links.js":
+/*!*****************************!*\
+  !*** ./components/Links.js ***!
+  \*****************************/
+/*! exports provided: USER_LINKS_QUERY, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER_LINKS_QUERY", function() { return USER_LINKS_QUERY; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "D:\\projects\\linxify\\linxify-graphql-frontend\\components\\Links.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+const StyledLink = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
+  displayName: "Links__StyledLink",
+  componentId: "sc-205ufg-0"
+})(["background-color:#fcfcfc;display:flex;flex-direction:row;justify-content:stretch;align-items:center;min-height:50px;padding:10px;border-bottom:1px solid #808080;.fav-icon{margin:10px;img{max-width:25px;height:auto;}}"]);
+const USER_LINKS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default.a`
+  query USER_LINKS_QUERY {
+    userLinks {
+      id
+      url
+      title
+      favIcon
+    }
+  }
+`;
+
+const displayLinks = links => {
+  return links.map(link => {
+    return __jsx("div", {
+      key: link.id,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38
+      },
+      __self: undefined
+    }, __jsx(StyledLink, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39
+      },
+      __self: undefined
+    }, __jsx("div", {
+      className: "fav-icon",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      },
+      __self: undefined
+    }, __jsx("img", {
+      src: link.favIcon,
+      alt: link.title,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41
+      },
+      __self: undefined
+    })), __jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 43
+      },
+      __self: undefined
+    }, __jsx("a", {
+      href: link.url,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44
+      },
+      __self: undefined
+    }, link.title))));
+  });
+};
+
+const Links = () => {
+  const {
+    data,
+    loading,
+    error
+  } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(USER_LINKS_QUERY);
+  if (loading) return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
+    },
+    __self: undefined
+  }, "Loading...");
+
+  if (!data || data.userLinks.length < 1) {
+    return __jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 56
+      },
+      __self: undefined
+    }, "You haven't saved any links yet.");
+  }
+
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59
+    },
+    __self: undefined
+  }, displayLinks(data.userLinks));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Links);
 
 /***/ }),
 
@@ -705,9 +879,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/Form */ "./components/styles/Form.js");
-/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
-/* harmony import */ var _PleaseSignIn__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./PleaseSignIn */ "./components/PleaseSignIn.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./styles/Form */ "./components/styles/Form.js");
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
+/* harmony import */ var _PleaseSignIn__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./PleaseSignIn */ "./components/PleaseSignIn.js");
+/* harmony import */ var _CreateLink__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./CreateLink */ "./components/CreateLink.js");
+/* harmony import */ var _Links__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Links */ "./components/Links.js");
 
 
 
@@ -728,6 +906,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+
+
+
 const SIGNIN_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_9___default.a`
   mutation SIGNIN_MUTATION($email: String!, $password: String!) {
     signin(email: $email, password: $password) {
@@ -739,6 +920,7 @@ const SIGNIN_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_9___default.a`
 `;
 
 const Signin = props => {
+  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_10__["useRouter"])();
   const {
     0: loginState,
     1: setLoginState
@@ -753,8 +935,15 @@ const Signin = props => {
     data
   }] = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_8__["useMutation"])(SIGNIN_MUTATION, {
     refetchQueries: [{
-      query: _PleaseSignIn__WEBPACK_IMPORTED_MODULE_12__["CURRENT_USER_QUERY"]
-    }]
+      query: _PleaseSignIn__WEBPACK_IMPORTED_MODULE_13__["CURRENT_USER_QUERY"]
+    }],
+    awaitRefetchQueries: true
+  });
+  const [saveLink, saveLinkResult] = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_8__["useMutation"])(_CreateLink__WEBPACK_IMPORTED_MODULE_14__["CREATE_LINK_MUTATION"], {
+    refetchQueries: [{
+      query: _Links__WEBPACK_IMPORTED_MODULE_15__["USER_LINKS_QUERY"]
+    }],
+    awaitRefetchQueries: true
   }); // TODO, REMOVE THESE ONCE APOLLO IS ADDED
   //const loading = false;
   //const error = null;
@@ -765,9 +954,10 @@ const Signin = props => {
     }));
   };
 
-  return __jsx(_styles_Form__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  return __jsx(_styles_Form__WEBPACK_IMPORTED_MODULE_11__["default"], {
     method: "POST",
     onSubmit: async e => {
+      let linkToSave;
       e.preventDefault(); //const res = await signup();
       //console.log(res);
 
@@ -776,7 +966,26 @@ const Signin = props => {
           email: loginState.email,
           password: loginState.password
         }
-      });
+      }); // Save linkToSave if one is set in localStorage
+
+      if (!error) {
+        linkToSave = localStorage.getItem('linkToSave');
+
+        if (linkToSave) {
+          linkToSave = JSON.parse(linkToSave);
+          await saveLink({
+            variables: {
+              url: linkToSave.url,
+              category: linkToSave.category ? linkToSave.category : ''
+            }
+          }); //localStorage.removeItem('linkToSave');
+
+          if (!saveLinkResult.error) {
+            router.push('/');
+          }
+        }
+      }
+
       !error && setLoginState({
         name: '',
         email: '',
@@ -785,7 +994,7 @@ const Signin = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 48
     },
     __self: undefined
   }, __jsx("fieldset", {
@@ -793,27 +1002,34 @@ const Signin = props => {
     "aria-busy": loading,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 78
     },
     __self: undefined
   }, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 79
     },
     __self: undefined
-  }, "Sign In"), __jsx(_ErrorMessage__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  }, "Sign In"), __jsx(_ErrorMessage__WEBPACK_IMPORTED_MODULE_12__["default"], {
     error: error,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 80
+    },
+    __self: undefined
+  }), __jsx(_ErrorMessage__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    error: saveLinkResult.error,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
     },
     __self: undefined
   }), __jsx("label", {
     htmlFor: "email",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 82
     },
     __self: undefined
   }, "Email", __jsx("input", {
@@ -824,14 +1040,14 @@ const Signin = props => {
     onChange: saveToState,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 84
     },
     __self: undefined
   })), __jsx("label", {
     htmlFor: "password",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 92
     },
     __self: undefined
   }, "Password", __jsx("input", {
@@ -842,14 +1058,14 @@ const Signin = props => {
     onChange: saveToState,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 94
     },
     __self: undefined
   })), __jsx("button", {
     type: "submit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 102
     },
     __self: undefined
   }, "Sign In")));
@@ -3664,6 +3880,17 @@ module.exports = require("next-with-apollo");
 /***/ (function(module, exports) {
 
 module.exports = require("next/head");
+
+/***/ }),
+
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
 
 /***/ }),
 

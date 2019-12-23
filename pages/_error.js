@@ -3,6 +3,7 @@ import Router, {useRouter }from 'next/router';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { validateUrl } from '../lib/utils';
 import { CREATE_LINK_MUTATION } from '../components/CreateLink';
+import { USER_LINKS_QUERY } from '../components/Links';
 import Error from '../components/ErrorMessage';
 
 function CustomError({ statusCode, urlToSave, cookie }) {
@@ -13,11 +14,15 @@ function CustomError({ statusCode, urlToSave, cookie }) {
   let token;  
   let loggedIn = false;
 
-  const [createLink, { data, loading, error }] = useMutation(CREATE_LINK_MUTATION);
+  const [createLink, { data, loading, error }] = useMutation(CREATE_LINK_MUTATION, {
+    refetchQueries: [{ query: USER_LINKS_QUERY}],
+    awaitRefetchQueries: true
+  });
 
   useEffect(() => {            
       async function fetchCreateLink() {
         await createLink({ variables: { url, category }});
+        localStorage.removeItem('linkToSave');
         router.push('/');
       }
 

@@ -21,8 +21,8 @@ const StyledLink = styled.div`
     }
 `;
 
-const USER_LINKS_QUERY = gql`
-  query {
+export const USER_LINKS_QUERY = gql`
+  query USER_LINKS_QUERY {
     userLinks {
       id
       url

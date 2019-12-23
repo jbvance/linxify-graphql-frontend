@@ -1,5 +1,54 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\_app.js"],{
 
+/***/ "./components/CreateLink.js":
+/*!**********************************!*\
+  !*** ./components/CreateLink.js ***!
+  \**********************************/
+/*! exports provided: CREATE_LINK_MUTATION, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_LINK_MUTATION", function() { return CREATE_LINK_MUTATION; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
+
+var _jsxFileName = "D:\\projects\\linxify\\linxify-graphql-frontend\\components\\CreateLink.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+function _templateObject() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    mutation CREATE_LINK_MUTATION ($url: String!, $title: String, $favIcon: String, $note: String, $category: String) {\n    createLink (url: $url, title: $title, favIcon: $favIcon, note: $note, category: $category) {\n        id\n        url\n        title\n        favIcon\t  \n        note    \n        category {\n        id\n        name\n        }\n  }\n}\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+
+
+var CREATE_LINK_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
+
+var CreateLink = function CreateLink() {
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CreateLink);
+
+/***/ }),
+
 /***/ "./components/ErrorMessage.js":
 /*!************************************!*\
   !*** ./components/ErrorMessage.js ***!
@@ -178,6 +227,131 @@ var Header = function Header() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
+/***/ "./components/Links.js":
+/*!*****************************!*\
+  !*** ./components/Links.js ***!
+  \*****************************/
+/*! exports provided: USER_LINKS_QUERY, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER_LINKS_QUERY", function() { return USER_LINKS_QUERY; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
+
+var _jsxFileName = "D:\\projects\\linxify\\linxify-graphql-frontend\\components\\Links.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+function _templateObject() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query USER_LINKS_QUERY {\n    userLinks {\n      id\n      url\n      title\n      favIcon\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+
+
+
+var StyledLink = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
+  displayName: "Links__StyledLink",
+  componentId: "sc-205ufg-0"
+})(["background-color:#fcfcfc;display:flex;flex-direction:row;justify-content:stretch;align-items:center;min-height:50px;padding:10px;border-bottom:1px solid #808080;.fav-icon{margin:10px;img{max-width:25px;height:auto;}}"]);
+var USER_LINKS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_4___default()(_templateObject());
+
+var displayLinks = function displayLinks(links) {
+  return links.map(function (link) {
+    return __jsx("div", {
+      key: link.id,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38
+      },
+      __self: this
+    }, __jsx(StyledLink, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39
+      },
+      __self: this
+    }, __jsx("div", {
+      className: "fav-icon",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      },
+      __self: this
+    }, __jsx("img", {
+      src: link.favIcon,
+      alt: link.title,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41
+      },
+      __self: this
+    })), __jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 43
+      },
+      __self: this
+    }, __jsx("a", {
+      href: link.url,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44
+      },
+      __self: this
+    }, link.title))));
+  });
+};
+
+var Links = function Links() {
+  var _useQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(USER_LINKS_QUERY),
+      data = _useQuery.data,
+      loading = _useQuery.loading,
+      error = _useQuery.error;
+
+  if (loading) return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
+    },
+    __self: this
+  }, "Loading...");
+
+  if (!data || data.userLinks.length < 1) {
+    return __jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 56
+      },
+      __self: this
+    }, "You haven't saved any links yet.");
+  }
+
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59
+    },
+    __self: this
+  }, displayLinks(data.userLinks));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Links);
 
 /***/ }),
 
@@ -612,9 +786,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./styles/Form */ "./components/styles/Form.js");
-/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
-/* harmony import */ var _PleaseSignIn__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./PleaseSignIn */ "./components/PleaseSignIn.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./styles/Form */ "./components/styles/Form.js");
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
+/* harmony import */ var _PleaseSignIn__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./PleaseSignIn */ "./components/PleaseSignIn.js");
+/* harmony import */ var _CreateLink__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./CreateLink */ "./components/CreateLink.js");
+/* harmony import */ var _Links__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./Links */ "./components/Links.js");
 
 
 
@@ -648,9 +826,14 @@ function _templateObject() {
 
 
 
+
+
+
 var SIGNIN_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_12___default()(_templateObject());
 
 var Signin = function Signin(props) {
+  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_13__["useRouter"])();
+
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_10__["useState"])({
     name: '',
     email: '',
@@ -661,15 +844,26 @@ var Signin = function Signin(props) {
 
   var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_11__["useMutation"])(SIGNIN_MUTATION, {
     refetchQueries: [{
-      query: _PleaseSignIn__WEBPACK_IMPORTED_MODULE_15__["CURRENT_USER_QUERY"]
-    }]
+      query: _PleaseSignIn__WEBPACK_IMPORTED_MODULE_16__["CURRENT_USER_QUERY"]
+    }],
+    awaitRefetchQueries: true
   }),
       _useMutation2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_8__["default"])(_useMutation, 2),
       signin = _useMutation2[0],
       _useMutation2$ = _useMutation2[1],
       loading = _useMutation2$.loading,
       error = _useMutation2$.error,
-      data = _useMutation2$.data; // TODO, REMOVE THESE ONCE APOLLO IS ADDED
+      data = _useMutation2$.data;
+
+  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_11__["useMutation"])(_CreateLink__WEBPACK_IMPORTED_MODULE_17__["CREATE_LINK_MUTATION"], {
+    refetchQueries: [{
+      query: _Links__WEBPACK_IMPORTED_MODULE_18__["USER_LINKS_QUERY"]
+    }],
+    awaitRefetchQueries: true
+  }),
+      _useMutation4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_8__["default"])(_useMutation3, 2),
+      saveLink = _useMutation4[0],
+      saveLinkResult = _useMutation4[1]; // TODO, REMOVE THESE ONCE APOLLO IS ADDED
   //const loading = false;
   //const error = null;
 
@@ -678,9 +872,10 @@ var Signin = function Signin(props) {
     setLoginState(_objectSpread({}, loginState, Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])({}, e.target.name, e.target.value)));
   };
 
-  return __jsx(_styles_Form__WEBPACK_IMPORTED_MODULE_13__["default"], {
+  return __jsx(_styles_Form__WEBPACK_IMPORTED_MODULE_14__["default"], {
     method: "POST",
     onSubmit: function _callee(e) {
+      var linkToSave;
       return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_6___default.a.async(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -697,13 +892,41 @@ var Signin = function Signin(props) {
               }));
 
             case 3:
+              if (error) {
+                _context.next = 10;
+                break;
+              }
+
+              linkToSave = localStorage.getItem('linkToSave');
+
+              if (!linkToSave) {
+                _context.next = 10;
+                break;
+              }
+
+              linkToSave = JSON.parse(linkToSave);
+              _context.next = 9;
+              return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_6___default.a.awrap(saveLink({
+                variables: {
+                  url: linkToSave.url,
+                  category: linkToSave.category ? linkToSave.category : ''
+                }
+              }));
+
+            case 9:
+              //localStorage.removeItem('linkToSave');
+              if (!saveLinkResult.error) {
+                router.push('/');
+              }
+
+            case 10:
               !error && setLoginState({
                 name: '',
                 email: '',
                 password: ''
               });
 
-            case 4:
+            case 11:
             case "end":
               return _context.stop();
           }
@@ -712,7 +935,7 @@ var Signin = function Signin(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 48
     },
     __self: this
   }, __jsx("fieldset", {
@@ -720,27 +943,34 @@ var Signin = function Signin(props) {
     "aria-busy": loading,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 78
     },
     __self: this
   }, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 79
     },
     __self: this
-  }, "Sign In"), __jsx(_ErrorMessage__WEBPACK_IMPORTED_MODULE_14__["default"], {
+  }, "Sign In"), __jsx(_ErrorMessage__WEBPACK_IMPORTED_MODULE_15__["default"], {
     error: error,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 80
+    },
+    __self: this
+  }), __jsx(_ErrorMessage__WEBPACK_IMPORTED_MODULE_15__["default"], {
+    error: saveLinkResult.error,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
     },
     __self: this
   }), __jsx("label", {
     htmlFor: "email",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 82
     },
     __self: this
   }, "Email", __jsx("input", {
@@ -751,14 +981,14 @@ var Signin = function Signin(props) {
     onChange: saveToState,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 84
     },
     __self: this
   })), __jsx("label", {
     htmlFor: "password",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 92
     },
     __self: this
   }, "Password", __jsx("input", {
@@ -769,14 +999,14 @@ var Signin = function Signin(props) {
     onChange: saveToState,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 94
     },
     __self: this
   })), __jsx("button", {
     type: "submit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 102
     },
     __self: this
   }, "Sign In")));
@@ -3660,7 +3890,7 @@ function previouslyCompared(a, b) {
 /*!*****************************************************!*\
   !*** ./node_modules/apollo-boost/lib/bundle.esm.js ***!
   \*****************************************************/
-/*! exports provided: HttpLink, gql, default, ApolloClient, ApolloError, FetchType, NetworkStatus, ObservableQuery, isApolloError, Observable, getOperationName, ApolloLink, concat, createOperation, empty, execute, from, fromError, fromPromise, makePromise, split, toPromise, HeuristicFragmentMatcher, InMemoryCache, IntrospectionFragmentMatcher, ObjectCache, StoreReader, StoreWriter, WriteError, assertIdValue, defaultDataIdFromObject, defaultNormalizedCacheFactory, enhanceErrorWithDocument */
+/*! exports provided: ApolloClient, ApolloError, FetchType, NetworkStatus, ObservableQuery, isApolloError, Observable, getOperationName, ApolloLink, concat, createOperation, empty, execute, from, fromError, fromPromise, makePromise, split, toPromise, HeuristicFragmentMatcher, InMemoryCache, IntrospectionFragmentMatcher, ObjectCache, StoreReader, StoreWriter, WriteError, assertIdValue, defaultDataIdFromObject, defaultNormalizedCacheFactory, enhanceErrorWithDocument, HttpLink, gql, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
