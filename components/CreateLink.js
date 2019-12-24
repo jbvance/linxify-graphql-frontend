@@ -4,7 +4,7 @@ import { useRouter, Router } from 'next/router';
 import gql from 'graphql-tag';
 import Form from '../components/styles/Form';
 import Error from '../components/ErrorMessage';
-import { CURRENT_USER_QUERY } from '../components/PleaseSignIn';
+import { USER_LINKS_QUERY } from './Links';
 
 export const CREATE_LINK_MUTATION = gql`
   mutation CREATE_LINK_MUTATION(
@@ -60,7 +60,7 @@ const CreateLink = () => {
   const [createLink, { loading, error, data }] = useMutation(
     CREATE_LINK_MUTATION,
     {
-      refetchQueries: [{ query: CURRENT_USER_QUERY }],
+      refetchQueries: [{ query: USER_LINKS_QUERY }],
       awaitRefetchQueries: true
     }
   );
@@ -159,8 +159,8 @@ const CreateLink = () => {
             Categories
             {catData ? renderCategoriesSelect() : <p>You have no categories. Please create a new category first to select one</p>}   
         </label>           
-      </fieldset>
-      <button type="submit">Submit{loading ? 'ting' : ''}</button>
+        <button type="submit">Submit{loading ? 'ting' : ''}</button>
+      </fieldset>      
     </Form>
   );
 };
