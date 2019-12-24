@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { useRouter, Router } from 'next/router';
 import gql from 'graphql-tag';
@@ -43,7 +43,7 @@ export const USER_CATEGORIES_QUERY = gql`
   }
 `;
 
-const CreateLink = () => {
+const CreateLink = props => {
   const router = useRouter();
 
   const [formState, setFormState] = useState({
@@ -52,10 +52,30 @@ const CreateLink = () => {
     note: '',
     category: ''
   });
+  
 
   const { loading: catLoading, error: catError, data: catData } = useQuery(
     USER_CATEGORIES_QUERY
   );
+
+  useEffect(() => {
+    if(!catData || !catData.userCategories) return;
+
+    let noneCategory = catData.userCategories.find(
+        category => category.name.toLowerCase() === 'none'
+      );
+      if (noneCategory) {
+        noneCategory = noneCategory.id;
+      }
+  
+      const defaultCat =
+        props.link && props.link.category
+          ? // TODO - CHANGE THIS TO GET CATEGORY ID WHEN EDITING A LINK
+            props.link.category.id
+          : noneCategory;
+          //console.log("defaultCat", defaultCat);
+        setFormState({ ...formState, category: defaultCat});
+  }, [catData]);
 
   const [createLink, { loading, error, data }] = useMutation(
     CREATE_LINK_MUTATION,
@@ -70,18 +90,8 @@ const CreateLink = () => {
   };
 
   const renderCategoriesSelect = () => {
-    let noneCategory = catData.userCategories.find(
-      category => category.name.toLowerCase() === 'none'
-    );
-    if (noneCategory) {
-      noneCategory = noneCategory.id;
-    }
-
-    // const defaultCategory =
-    //   props.link && props.link.category
-    //     ? props.link.category._id || props.link.category
-    //     : noneCategory;
-    const categories = catData.userCategories.map(category => {
+      //console.log('FORMSTATE', formState.category);
+     const categories = catData.userCategories.map(category => {
       return (
         <option key={category.id} value={category.id}>
           {category.name}
@@ -93,7 +103,7 @@ const CreateLink = () => {
       <select
         id="category"
         name="category"
-        //defaultValue={defaultCategory}
+        value={formState.category}
         className="browser-default"
         onChange={saveToState}
       >
@@ -156,11 +166,18 @@ const CreateLink = () => {
           />
         </label>
         <label htmlFor="categories">
-            Categories
-            {catData ? renderCategoriesSelect() : <p>You have no categories. Please create a new category first to select one</p>}   
-        </label>           
+          Categories
+          {catData ? (
+            renderCategoriesSelect()
+          ) : (
+            <p>
+              You have no categories. Please create a new category first to
+              select one
+            </p>
+          )}
+        </label>
         <button type="submit">Submit{loading ? 'ting' : ''}</button>
-      </fieldset>      
+      </fieldset>
     </Form>
   );
 };
