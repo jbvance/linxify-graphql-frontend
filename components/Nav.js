@@ -22,13 +22,13 @@ const Nav = () => {
      <Link href="/">
         <a>Links</a>
     </Link>
-   <Link href="/add-link">
+   <Link href="/createlink">
         <a>Add Link</a>
     </Link>
-     <Link href="/categr">
+     <Link href="/categories">
         <a>Categories</a>
     </Link>
-     <Link href="/add-category">
+     <Link href="/createcategory">
         <a>Add Category</a>
     </Link>
     <Signout />
