@@ -60,7 +60,7 @@ function CustomError({ statusCode, urlToSave, cookie }) {
   //console.log(validateUrl(urlToSave.replace(/^\/|\/$/g, ''))); 
   return (
     <div>
-        <h2>Sorry, there was an error - {statusCode}</h2>
+        {statusCode !== 404 ? <h2>Sorry, there was an error - {statusCode}</h2> : <h4>Attempting to save link...</h4>}
         <Error error={error} />
     </div>
   );

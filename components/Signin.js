@@ -27,7 +27,7 @@ const Signin = props => {
   });
 
   const [signin, { loading, error, data }] = useMutation(SIGNIN_MUTATION, {
-    refetchQueries: [{ query: CURRENT_USER_QUERY} ],
+    refetchQueries: [{ query: CURRENT_USER_QUERY}, { query: USER_LINKS_QUERY }],
     awaitRefetchQueries: true
   }); 
   
