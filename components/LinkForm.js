@@ -26,11 +26,11 @@ const LinkForm = props => {
     USER_CATEGORIES_QUERY
   );
 
-  const [formState, setFormState] = useState({
-    url: props.link.url,
-    title: props.link.title,
-    note: props.link.note,
-    category: props.link.category
+  const [formState, setFormState] = useState({   
+    url: props.link.url || '',
+    title: props.link.title || '',
+    note: props.link.note || '',
+    category: props.link.category || ''
   });
 
   const saveToState = e => {
@@ -83,13 +83,17 @@ const LinkForm = props => {
       method="POST"
       onSubmit={async e => {
         e.preventDefault();
+        const variables = {
+          url: formState.url,
+          title: formState.title,
+          note: formState.note,
+          category: formState.category
+        };
+        if(props.link.id) {
+          variables['id'] = props.link.id
+        }
         await linkFunction({
-          variables: {
-            url: formState.url,
-            title: formState.title,
-            note: formState.note,
-            category: formState.category
-          }
+          variables
         });
         !error && router.push('/');
       }}
