@@ -117,7 +117,7 @@ const Links = () => {
       <div key={link.id}>
         <StyledLink>
           <div className="fav-icon">
-            <img src={link.favIcon} alt={link.title} />
+            <img src={link.favIcon || '/static/website-icon.png'} alt={link.title} />
           </div>
           <div className="url-text">
             <a href={link.url}>{link.title}</a>

@@ -98,7 +98,7 @@ const LinkForm = props => {
         !error && router.push('/');
       }}
     >
-      <h2>Create a New Link</h2>
+      <h2>{props.header}</h2>
       <Error error={error} />
       <fieldset disabled={loading} aria-busy={loading}>
         <label htmlFor="url">

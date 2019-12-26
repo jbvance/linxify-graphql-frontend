@@ -36,7 +36,7 @@ export const EDIT_LINK_MUTATION = gql`
 const EditLink = ({ link }) => {    
 
   return (
-      <LinkForm link={link} mutation={EDIT_LINK_MUTATION}/>
+      <LinkForm link={link} header={`Edit Link - ${link.title}`} mutation={EDIT_LINK_MUTATION}/>
   )
 };
 

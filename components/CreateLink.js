@@ -40,7 +40,7 @@ const CreateLink = props => {
   };
 
   return (
-      <LinkForm link={link} mutation={CREATE_LINK_MUTATION}/>
+      <LinkForm link={link}  header={'Create New Link'} mutation={CREATE_LINK_MUTATION}/>
   )
 
 
