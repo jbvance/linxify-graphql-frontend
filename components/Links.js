@@ -36,8 +36,11 @@ const StyledLink = styled.div`
       padding: 0 10px;
       border-radius: 2px;
       color: white;
-    }
+    }    
   }
+  @media only screen and (max-width: 350px) {
+     flex-direction: column;
+    }
 `;
 
 export const USER_LINKS_QUERY = gql`
@@ -112,34 +115,44 @@ const Links = () => {
   if (!data || data.userLinks.length < 1) {
     return <div>You haven't saved any links yet.</div>;
   }
-  return <div>{data.userLinks.map(link => {
-    return (
-      <div key={link.id}>
-        <StyledLink>
-          <div className="fav-icon">
-            <img src={link.favIcon || '/static/website-icon.png'} alt={link.title} />
+  return (
+    <div>
+      {data.userLinks.map(link => {
+        return (
+          <div key={link.id}>
+            <StyledLink>
+              <div className="fav-icon">
+                <img
+                  src={link.favIcon || '/static/website-icon.png'}
+                  alt={link.title}
+                />
+              </div>
+              <div className="url-text">
+                <a href={link.url}>{link.title}</a>
+              </div>
+              <div className="button-row">
+                <div className="button-link">
+                  <Link href={`/link/${link.id}`}>
+                    <a className="button">Edit</a>
+                  </Link>
+                </div>
+                <div className="button-link">
+                  <Link href="#">
+                    <a
+                      className="button"
+                      onClick={() => onDeleteClick(link.id)}
+                    >
+                      Delete
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            </StyledLink>
           </div>
-          <div className="url-text">
-            <a href={link.url}>{link.title}</a>
-          </div>
-          <div className="button-row">
-            <div className="button-link">
-              <Link href={`/link/${link.id}`}>
-                <a className="button">Edit</a>
-              </Link>
-            </div>
-            <div className="button-link">
-              <Link href="#">
-                <a className="button" onClick={() => onDeleteClick(link.id)}>
-                  Delete
-                </a>
-              </Link>
-            </div>
-          </div>
-        </StyledLink>
-      </div>
-    );
-  })}</div>;
+        );
+      })}
+    </div>
+  );
 };
 
 export default Links;
