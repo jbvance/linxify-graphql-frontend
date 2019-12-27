@@ -36,11 +36,11 @@ const StyledLink = styled.div`
       padding: 0 10px;
       border-radius: 2px;
       color: white;
-    }    
+    }
   }
   @media only screen and (max-width: 350px) {
-     flex-direction: column;
-    }
+    flex-direction: column;
+  }
 `;
 
 export const USER_LINKS_QUERY = gql`
@@ -104,7 +104,9 @@ const Links = () => {
     awaitRefetchQueries: true
   });
   const onDeleteClick = async id => {
-    alert(`Clicked ${id}`);
+    if (!confirm('Are you sure you want to delete this link?')) {
+        return;
+    }
     await deleteLink({
       variables: {
         id
