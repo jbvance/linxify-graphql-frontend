@@ -1,30 +1,23 @@
 import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-import EditLink from '../../components/EditLink';
+import EditCategory from '../../components/EditCategory';
 import Error from '../../components/ErrorMessage';
 
-export const USER_LINK_QUERY = gql`
-  query USER_LINK_QUERY($id: ID!) {
-    userLink(id: $id) {
+export const USER_CATEGORY_QUERY = gql`
+  query USER_CATEGORY_QUERY($id: ID!) {
+    userCategory(id: $id) {
       id
-      url
-      title
-      favIcon
-      note
-      category {
-        id
-        name
-      }
+      name
     }
   }
 `;
 
-const EditLinkPage = () => {
+const EditCategoryPage = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  const { data, error, loading } = useQuery(USER_LINK_QUERY, {
+  const { data, error, loading } = useQuery(USER_CATEGORY_QUERY, {
     variables: {
       id
     }
@@ -35,9 +28,9 @@ const EditLinkPage = () => {
 
   return (
     <div>
-      <EditLink link={data.userLink} />           
+      <EditCategory category={data.userCategory} />           
     </div>
   );
 };
 
-export default EditLinkPage;
+export default EditCategoryPage;

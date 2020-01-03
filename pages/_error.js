@@ -54,9 +54,7 @@ function CustomError({ statusCode, urlToSave, cookie }) {
           }                  
       }      
   }, []);
-
-  if(data) console.log("DATA", data);  
-
+ 
   //console.log(validateUrl(urlToSave.replace(/^\/|\/$/g, ''))); 
   return (
     <div>
