@@ -94,8 +94,7 @@ const displayLinks = links => {
   });
 };
 
-const Links = () => {
-  const { data, loading, error } = useQuery(USER_LINKS_QUERY);
+const Links = ({ links }) => {
   const [
     deleteLink,
     { loading: deleteLinkLoading, deleteLinkError, deleteLinkData }
@@ -113,13 +112,13 @@ const Links = () => {
       }
     });
   };
-  if (loading) return <div>Loading...</div>;
-  if (!data || data.userLinks.length < 1) {
+ 
+  if (!links || links.length < 1) {
     return <div>You haven't saved any links yet.</div>;
   }
   return (
     <div>
-      {data.userLinks.map(link => {
+      {links.map(link => {
         return (
           <div key={link.id}>
             <StyledLink>
