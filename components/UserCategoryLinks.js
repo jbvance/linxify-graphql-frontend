@@ -25,7 +25,7 @@ const UserCategoryLinks = ({ categoryId }) => {
   return (
     <React.Fragment>
       <ErrorMessage error={error} />
-      <Links links={data.userCategoryLinks} />
+      <Links links={data.userCategoryLinks} categoryId={categoryId} />
     </React.Fragment>
   );
 };
