@@ -96,9 +96,11 @@ const Categories = () => {
       {data.userCategories.map(category => {
         return (
           <div key={category.id}>
-            <StyledCategory>              
+            <StyledCategory>
               <div className="url-text">
-                {category.name}
+                <Link href={`/category-links/${category.id}`}>
+                  <a>{category.name}</a>
+                </Link>
               </div>
               <div className="button-row">
                 <div className="button-link">
