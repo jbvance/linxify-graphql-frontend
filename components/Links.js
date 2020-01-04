@@ -40,6 +40,13 @@ const StyledLink = styled.div`
       border-radius: 2px;
       color: white;
     }
+    button {
+      border: 0;
+      background-color: ${props => props.theme.green};
+      font-size: inherit;
+      font-family: inherit;
+      cursor: pointer;
+    }
   }
   @media only screen and (max-width: 350px) {
     flex-direction: column;
@@ -125,11 +132,7 @@ const Links = ({ links, categoryId, page, perPage }) => {
     { loading: deleteLinkLoading, deleteLinkError, deleteLinkData }
   ] = useMutation(DELETE_LINK_MUTATION, {
     refetchQueries: refetchQueriesArray,
-    awaitRefetchQueries: true,
-    update(cache, data) {
-      console.log('DATA AFTER DELETE', data);
-      console.log('CACHE', cache);
-    }  
+    awaitRefetchQueries: true   
   });
   const onDeleteClick = async id => {
     if (!confirm('Are you sure you want to delete this link?')) {
@@ -167,7 +170,7 @@ const Links = ({ links, categoryId, page, perPage }) => {
                   </Link>
                 </div>
                 <div className="button-link">
-                  <button onClick={() => onDeleteClick(link.id)}>Delete</button>                
+                  <button className="button" onClick={() => onDeleteClick(link.id)}>Delete</button>                
                 </div>
               </div>
             </StyledLink>
