@@ -4,6 +4,8 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { USER_CATEGORY_LINKS_QUERY } from './UserCategoryLinks';
+import { perPage } from '../config';
+import { PAGINATION_QUERY } from './Pagination';
 
 const StyledLink = styled.div`
   background-color: #fcfcfc;
@@ -45,8 +47,8 @@ const StyledLink = styled.div`
 `;
 
 export const USER_LINKS_QUERY = gql`
-  query USER_LINKS_QUERY {
-    userLinks {
+  query USER_LINKS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
+    userLinks(skip: $skip, first: $first) {
       id
       url
       title
@@ -95,11 +97,18 @@ const displayLinks = links => {
   });
 };
 
-const Links = ({ links, categoryId }) => {
+const Links = ({ links, categoryId, page, perPage }) => {
 
   const refetchQueriesArray = [
-    { query: USER_LINKS_QUERY }
+    {
+      query: USER_LINKS_QUERY,
+      variables: {
+        skip: page * perPage - perPage
+      }
+    }
   ];
+
+  refetchQueriesArray.push({query: PAGINATION_QUERY });
 
   // If on links by categories page, add query to refetch 
   // links by categoryId if a link is deleted
@@ -115,7 +124,12 @@ const Links = ({ links, categoryId }) => {
     deleteLink,
     { loading: deleteLinkLoading, deleteLinkError, deleteLinkData }
   ] = useMutation(DELETE_LINK_MUTATION, {
-    refetchQueries: refetchQueriesArray,    
+    refetchQueries: refetchQueriesArray,
+    awaitRefetchQueries: true,
+    update(cache, data) {
+      console.log('DATA AFTER DELETE', data);
+      console.log('CACHE', cache);
+    }  
   });
   const onDeleteClick = async id => {
     if (!confirm('Are you sure you want to delete this link?')) {
@@ -153,14 +167,7 @@ const Links = ({ links, categoryId }) => {
                   </Link>
                 </div>
                 <div className="button-link">
-                  <Link href="#">
-                    <a
-                      className="button"
-                      onClick={() => onDeleteClick(link.id)}
-                    >
-                      Delete
-                    </a>
-                  </Link>
+                  <button onClick={() => onDeleteClick(link.id)}>Delete</button>                
                 </div>
               </div>
             </StyledLink>
