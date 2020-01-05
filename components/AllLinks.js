@@ -12,7 +12,7 @@ const AllLinks = (props) => {
     }
   });
   if (loading) return <div>Loading...</div>;
-  if (data) console.log('DATA', data);
+  //if (data) console.log('DATA', data);
   return (
     <React.Fragment>
       <ErrorMessage error={error} />

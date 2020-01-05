@@ -4,7 +4,7 @@ import PleaseSignIn from '../components/PleaseSignIn';
 import AllLinks from '../components/AllLinks';
 
 const  Home = props => { 
-  console.log("PROPS", props);   
+  //console.log("PROPS", props);   
   return (
    
     <PleaseSignIn>

@@ -26,6 +26,8 @@ function CustomError({ statusCode, urlToSave, cookie }) {
         router.push('/');
       }
 
+      console.log('COOKIE', cookie);
+
       if (cookie && cookie.includes('token=')) {
           // Assume user is logged in because cookie is present
           loggedIn = true;
@@ -67,7 +69,7 @@ function CustomError({ statusCode, urlToSave, cookie }) {
 const getInitialProps = (ctx) => {  
   let statusCode;
   let urlToSave;
-  let cookie;  
+  let cookie;   
   // If the res variable is defined it means nextjs
   // is in server side 
   if (ctx.res) {    
@@ -79,8 +81,9 @@ const getInitialProps = (ctx) => {
         // this will get passed on to the client when the component
         // mounts, at which point we will check the url and run
         // a mutation to add the link if the url is valid
-        urlToSave = ctx.req.url;       
-        cookie = ctx.req.headers.cookie; 
+        urlToSave = ctx.req.url;  
+        console.log('urlToSave', urlToSave);     
+        cookie = ctx.req.headers.cookie;         
     }
     // if (statusCode === 404) {
     //   console.log(`CANNOT FIND URL ${req.url}`)
