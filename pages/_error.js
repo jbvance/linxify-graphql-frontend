@@ -36,6 +36,7 @@ function CustomError({ statusCode, urlToSave }) {
   
   useEffect(() => {
     async function fetchCreateLink() {
+        console.log('CREATING LINK');
         await createLink({ variables: { url, category }});
         localStorage.removeItem('linkToSave');       
         router.push('/');
@@ -48,7 +49,7 @@ function CustomError({ statusCode, urlToSave }) {
      if (urlToSave) {
           //console.log('urlToSave', urlToSave);
           tmpUrl = urlToSave.replace(/^\/|\/$/g, '')       
-         // console.log("tmpUrl", tmpUrl);
+          //console.log("tmpUrl", tmpUrl);
           // check and see if a category was entered (i.e., url is preceded by '--')          
           if(tmpUrl.includes('--')) {              
               url = tmpUrl.split('--')[1];
@@ -58,12 +59,12 @@ function CustomError({ statusCode, urlToSave }) {
           } 
           // some Unix systems replace // with / in url, so need to convert back to // before saving
            url = url.includes('https') ? url.replace(/^(https):\/+/gi, 'https://') : url.includes('http') ?  url.replace(/^(http):\/+/gi, 'http://') : url;
-           console.log("URL AFTER REPLACE", url);
-          //console.log('URL and Cat', url, category); 
+           //console.log("URL AFTER REPLACE", url);
+           //console.log('URL and Cat', url, category); 
           
-          if (loggedIn) {
+          if (loggedIn) {           
             fetchCreateLink();
-          } else {
+          } else if (data && !data.me) { //Me Query has run and returned a null user.            
             //save to localStorage and redirect to login screen (we'll save the link after user logs in)            
             const lsLink = { url, category }           
             localStorage.setItem('linkToSave', JSON.stringify(lsLink));
@@ -72,11 +73,10 @@ function CustomError({ statusCode, urlToSave }) {
           }                  
       }       
   }, [data]);
- 
-  //console.log(validateUrl(urlToSave.replace(/^\/|\/$/g, ''))); 
+   
   return (
     <div>
-        {statusCode !== 404 ? <h2>Sorry, there was an error - {statusCode}</h2> : <h4>Attempting to save link...</h4>}
+        {statusCode !== 404 ? <h2>Sorry, there was an error - {statusCode}</h2> : error ? '' : <h4>Attempting to save link...</h4>}
         <Error error={error} />
     </div>
   );
