@@ -23,46 +23,54 @@ function CustomError({ statusCode, urlToSave }) {
 
   const [checkMe, { client, data }] = useLazyQuery(CURRENT_USER_QUERY);
 
-  useEffect(() => {            
-      async function fetchCreateLink() {
-        await createLink({ variables: { url, category }});
-        localStorage.removeItem('linkToSave');
-        router.push('/');
-      }
-
+  useEffect(() => {   
+      console.log('DATA1', data);        
+    
       async function checkLoggedIn() {      
         await checkMe();              
       }
 
-      checkLoggedIn();  
-      
-      if (data && data.me && data.me.id) {
+      checkLoggedIn();            
+            
+  }, []);
+  
+  useEffect(() => {
+    async function fetchCreateLink() {
+        await createLink({ variables: { url, category }});
+        localStorage.removeItem('linkToSave');       
+        router.push('/');
+    }
+    
+     if (data && data.me && data.me.id) {
         loggedIn = true;
       }
     
-      if (urlToSave) {
-          tmpUrl = urlToSave.replace(/^\/|\/$/g, '').replace('https:/', 'https://').replace('http:/', 'http://');
-          console.log("tmpUrl", tmpUrl);
-          // check and see if a category was entered (i.e., url is preceded by '--')
-          //console.log('URL TO SAVE', tmpUrl);
+     if (urlToSave) {
+          //console.log('urlToSave', urlToSave);
+          tmpUrl = urlToSave.replace(/^\/|\/$/g, '')       
+         // console.log("tmpUrl", tmpUrl);
+          // check and see if a category was entered (i.e., url is preceded by '--')          
           if(tmpUrl.includes('--')) {              
               url = tmpUrl.split('--')[1];
               category = tmpUrl.split('--')[0];
           } else {
               url = tmpUrl;
-          }          
+          } 
+          // some Unix systems replace // with / in url, so need to convert back to // before saving
+           url = url.includes('https') ? url.replace(/^(https):\/+/gi, 'https://') : url.includes('http') ?  url.replace(/^(http):\/+/gi, 'http://') : url;
+           console.log("URL AFTER REPLACE", url);
           //console.log('URL and Cat', url, category); 
-
+          
           if (loggedIn) {
             fetchCreateLink();
           } else {
-            //save to localStorage and redirect to login screen (we'll save the link after user logs in)
+            //save to localStorage and redirect to login screen (we'll save the link after user logs in)            
             const lsLink = { url, category }           
             localStorage.setItem('linkToSave', JSON.stringify(lsLink));
             router.push('/');
            
           }                  
-      }      
+      }       
   }, [data]);
  
   //console.log(validateUrl(urlToSave.replace(/^\/|\/$/g, ''))); 
