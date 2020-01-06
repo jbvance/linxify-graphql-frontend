@@ -21,15 +21,7 @@ function CustomError({ statusCode, urlToSave }) {
     awaitRefetchQueries: true
   });
 
-  const [checkMe, { client, data }] = useLazyQuery(CURRENT_USER_QUERY, {
-    onCompleted: meData => {
-      me = meData;
-      console.log('ME INSIDE', me);
-    },
-    onError: err => {
-      console.log('ERROR', err);
-    }
-  });
+  const [checkMe, { client, data }] = useLazyQuery(CURRENT_USER_QUERY);
 
   useEffect(() => {            
       async function fetchCreateLink() {
@@ -49,7 +41,8 @@ function CustomError({ statusCode, urlToSave }) {
       }
     
       if (urlToSave) {
-          tmpUrl = urlToSave.replace(/^\/|\/$/g, '');
+          tmpUrl = urlToSave.replace(/^\/|\/$/g, '').replace('https:/', 'https://').replace('http:/', 'http://');
+          console.log("tmpUrl", tmpUrl);
           // check and see if a category was entered (i.e., url is preceded by '--')
           //console.log('URL TO SAVE', tmpUrl);
           if(tmpUrl.includes('--')) {              
