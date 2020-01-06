@@ -1,22 +1,34 @@
 import React, { useEffect } from 'react';
 import Router, {useRouter }from 'next/router';
-import { useMutation, useQuery } from '@apollo/react-hooks';
+import { useMutation, useLazyQuery } from '@apollo/react-hooks';
 import { validateUrl } from '../lib/utils';
 import { CREATE_LINK_MUTATION } from '../components/CreateLink';
 import { USER_LINKS_QUERY } from '../components/Links';
 import Error from '../components/ErrorMessage';
+import { CURRENT_USER_QUERY } from '../components/PleaseSignIn';
 
-function CustomError({ statusCode, urlToSave, cookie }) {
+function CustomError({ statusCode, urlToSave }) {
   const router = useRouter();
   let tmpUrl = '';
   let url = [];
   let category;
   let token;  
   let loggedIn = false;
+  let me = null;
 
-  const [createLink, { data, loading, error }] = useMutation(CREATE_LINK_MUTATION, {
+  const [createLink, { error }] = useMutation(CREATE_LINK_MUTATION, {
     refetchQueries: [{ query: USER_LINKS_QUERY}],
     awaitRefetchQueries: true
+  });
+
+  const [checkMe, { client, data }] = useLazyQuery(CURRENT_USER_QUERY, {
+    onCompleted: meData => {
+      me = meData;
+      console.log('ME INSIDE', me);
+    },
+    onError: err => {
+      console.log('ERROR', err);
+    }
   });
 
   useEffect(() => {            
@@ -26,11 +38,14 @@ function CustomError({ statusCode, urlToSave, cookie }) {
         router.push('/');
       }
 
-      console.log('COOKIE', cookie);
+      async function checkLoggedIn() {      
+        await checkMe();              
+      }
 
-      if (cookie && cookie.includes('token=')) {
-          // Assume user is logged in because cookie is present
-          loggedIn = true;
+      checkLoggedIn();  
+      
+      if (data && data.me && data.me.id) {
+        loggedIn = true;
       }
     
       if (urlToSave) {
@@ -55,7 +70,7 @@ function CustomError({ statusCode, urlToSave, cookie }) {
            
           }                  
       }      
-  }, []);
+  }, [data]);
  
   //console.log(validateUrl(urlToSave.replace(/^\/|\/$/g, ''))); 
   return (
@@ -68,8 +83,7 @@ function CustomError({ statusCode, urlToSave, cookie }) {
 
 const getInitialProps = (ctx) => {  
   let statusCode;
-  let urlToSave;
-  let cookie;   
+  let urlToSave;  
   // If the res variable is defined it means nextjs
   // is in server side 
   if (ctx.res) {    
@@ -82,8 +96,7 @@ const getInitialProps = (ctx) => {
         // mounts, at which point we will check the url and run
         // a mutation to add the link if the url is valid
         urlToSave = ctx.req.url;  
-        console.log('urlToSave', urlToSave);     
-        cookie = ctx.req.headers.cookie;         
+        console.log('urlToSave', urlToSave);                     
     }
     // if (statusCode === 404) {
     //   console.log(`CANNOT FIND URL ${req.url}`)
@@ -103,7 +116,7 @@ const getInitialProps = (ctx) => {
     statusCode = null;   
     Router.push('/');
   }
-  return { statusCode, urlToSave, cookie};
+  return { statusCode, urlToSave };
 }
 
 CustomError.getInitialProps = getInitialProps;
