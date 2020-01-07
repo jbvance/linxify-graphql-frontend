@@ -36,10 +36,6 @@ const Signin = props => {
     awaitRefetchQueries: true
   });
 
-  // TODO, REMOVE THESE ONCE APOLLO IS ADDED
-  //const loading = false;
-  //const error = null;
-
   const saveToState = e => {
     setLoginState({ ...loginState, [e.target.name]: e.target.value });
   };
