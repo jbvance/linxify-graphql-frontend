@@ -19,6 +19,16 @@ const DropDownItem = styled.div`
   img {
     margin-right: 10px;
   }
+  button, a.button {
+    margin: 0px 10px;
+    background-color: ${props => props.theme.green};
+    color: white;
+    border: 0;
+    padding: 0 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font: inherit;
+}
 `;
 
 const glow = keyframes`

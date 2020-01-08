@@ -1,6 +1,7 @@
 import React from 'react';
 import Downshift, { resetIdCounter } from 'downshift';
 import Router from 'next/router';
+import Link from 'next/link';
 import { ApolloConsumer } from 'react-apollo';
 import gql from 'graphql-tag';
 import debounce from 'lodash.debounce';
@@ -75,8 +76,12 @@ class AutoComplete extends React.Component {
                       key={item.id}
                       highlighted={index === highlightedIndex}
                     >
-                      <img width="50" src={item.favIcon} alt={item.title} />
+                      <img width="50" src={item.favIcon || "/static/website-icon.png"} alt={item.title} />
                       {item.title}
+                      <Link href={`/link${item.id}`}>
+                         <button>Edit</button>
+                      </Link>
+                      <a className="button" href={item.url} target="_blank">Go!</a>
                     </DropDownItem>
                   ))}
                   {!this.state.userLinks.length &&
