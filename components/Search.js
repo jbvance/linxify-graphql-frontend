@@ -19,10 +19,11 @@ const SEARCH_LINKS_QUERY = gql`
 `;
 
 function routeToLink(link) {
-  Router.push({
-    pathname: `/link/${link.id}`,
-    
-  });
+  // IGNORE FOR NOW, we are letting the user choose to edit go straight to the url via the browser in a new
+  return;
+//   Router.push({
+//     pathname: `/link/${link.id}`    
+//   });
 }
 
 class AutoComplete extends React.Component {
@@ -38,8 +39,7 @@ class AutoComplete extends React.Component {
     const res = await client.query({
       query: SEARCH_LINKS_QUERY,
       variables: { searchString: e.target.value },
-    });
-    console.log('RESPONSE DATA', res);
+    });   
     this.setState({
       userLinks: res.data.searchUserLinks,
       loading: false,

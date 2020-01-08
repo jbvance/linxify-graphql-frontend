@@ -47,8 +47,7 @@ const StyledHeader = styled.header`
 
 const Header = () => {
   const { loading, error, data } = useQuery(CURRENT_USER_QUERY);
-  if (loading) return <div>...Loading</div>;
-  console.log('data', data);
+  if (loading) return <div>...Loading</div>; 
   return(
     <StyledHeader>
       <Error error={error} />      
