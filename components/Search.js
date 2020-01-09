@@ -78,7 +78,7 @@ class AutoComplete extends React.Component {
                     >
                       <img width="50" src={item.favIcon || "/static/website-icon.png"} alt={item.title} />
                       {item.title}
-                      <Link href={`/link${item.id}`}>
+                      <Link href={`/link/${item.id}`}>
                          <button>Edit</button>
                       </Link>
                       <a className="button" href={item.url} target="_blank">Go!</a>
