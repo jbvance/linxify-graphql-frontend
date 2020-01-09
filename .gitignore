@@ -7,3 +7,9 @@ haters/
 layout.md
 variables.env
 *.env
+
+# production
+/out
+/build
+/.next
+/.next-export
