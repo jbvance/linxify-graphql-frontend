@@ -12,11 +12,11 @@ Save a link while browsing the web
 
 Simply enter `linxify.now.sh/` in front of any URL and your link will be saved to the cloud and accessible from any device anywhere. Watch the example below for an illustration.  
   
-To save a link with a category, after linxify.net/, simply add the category name followed by two dashes(--) , such as `linxify.net/news--https://www.foxnews.com`. Please note that no spaces are allowed in the category name.
+To save a link with a category, after linxify.net/, simply add the category name followed by two dashes(--) , such as `linxify.now.sh/news--https://www.foxnews.com`. Please note that no spaces are allowed in the category name.
 
   
   
-![Save link while browsing the web](public/images/tutorial/tutorial-external-link.gif)
+![Save link while browsing the web](public/static/demo/demo-external-link.gif)
 
 Search for links
 ================
