@@ -21,11 +21,11 @@ To save a link with a category, after linxify.net/, simply add the category name
 Search for links
 ================
 
-Use the search bar to filter your list of links. If the search entered is found in then URL or the title of a link, that will be displayed, while all others are filtered out.
+Use the search bar to filter your list of links. If the search entered is found in the URL, title, or category of a link, that link will be displayed in the dropdown for you to select, while all others are filtered out.
 
   
   
-![Search links](public/images/tutorial/tutorial-search.gif)
+![Search links](public/static/demo/demo-search.gif)
 
 Edit or add a link manually
 ===========================
