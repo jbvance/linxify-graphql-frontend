@@ -1,4 +1,4 @@
-# Linxify - [https://www.linxify.now.sh](https://www.linxify.now.sh)
+# Linxify - [https://linxify.now.sh](https://inxify.now.sh)
 
 A simple, web-based app that allows you to save all of your bookmarks in the cloud. Just enter linxify.net/ before any url, and instantly save your bookmark.
 
