@@ -36,9 +36,3 @@ You can also edit or add a link directly within the website, with the option to 
   
 ![Edit or add link manually](public/static/demo/demo-add-link.gif)
 
-View, edit and add categories
-=============================
-
-  
-  
-![Edit or add link manually](public/images/tutorial/tutorial-categories.jpg)
